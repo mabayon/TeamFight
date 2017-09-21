@@ -6,7 +6,5 @@
 //  Copyright © 2017 Mahieu Bayon. All rights reserved.
 //
 
-import Foundation
-
-print("Hello, World!")
-
+var game = Launcher()
+game.play()

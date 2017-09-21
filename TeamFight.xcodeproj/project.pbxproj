@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		5C1E03EF1F72AFE100FE9F60 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1E03EE1F72AFE100FE9F60 /* main.swift */; };
+		5C3150ED1F7418560026856F /* player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3150EC1F7418560026856F /* player.swift */; };
+		5C3150EF1F74188C0026856F /* character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3150EE1F74188C0026856F /* character.swift */; };
+		5C3150F11F7418C40026856F /* fight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3150F01F7418C40026856F /* fight.swift */; };
+		5C3150F31F7418E80026856F /* launcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3150F21F7418E80026856F /* launcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +29,10 @@
 /* Begin PBXFileReference section */
 		5C1E03EB1F72AFE100FE9F60 /* TeamFight */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TeamFight; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C1E03EE1F72AFE100FE9F60 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		5C3150EC1F7418560026856F /* player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = player.swift; sourceTree = "<group>"; };
+		5C3150EE1F74188C0026856F /* character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = character.swift; sourceTree = "<group>"; };
+		5C3150F01F7418C40026856F /* fight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fight.swift; sourceTree = "<group>"; };
+		5C3150F21F7418E80026856F /* launcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = launcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +65,11 @@
 		5C1E03ED1F72AFE100FE9F60 /* TeamFight */ = {
 			isa = PBXGroup;
 			children = (
+				5C3150EC1F7418560026856F /* player.swift */,
+				5C3150EE1F74188C0026856F /* character.swift */,
 				5C1E03EE1F72AFE100FE9F60 /* main.swift */,
+				5C3150F01F7418C40026856F /* fight.swift */,
+				5C3150F21F7418E80026856F /* launcher.swift */,
 			);
 			path = TeamFight;
 			sourceTree = "<group>";
@@ -120,6 +132,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C3150F11F7418C40026856F /* fight.swift in Sources */,
+				5C3150EF1F74188C0026856F /* character.swift in Sources */,
+				5C3150F31F7418E80026856F /* launcher.swift in Sources */,
+				5C3150ED1F7418560026856F /* player.swift in Sources */,
 				5C1E03EF1F72AFE100FE9F60 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
