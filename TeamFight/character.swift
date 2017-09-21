@@ -17,7 +17,7 @@ class Warrior: Character {
     override init() {
         super.init()
         type    = .warrior
-        hp    = 0
+        hp    = 100
         hpMax = hp
         dmg     = 10
     }
@@ -27,7 +27,7 @@ class Mage: Character {
     override init() {
         super.init()
         type    = .mage
-        hp    = 85
+        hp    = 20
         hpMax = hp
         dmg     = 15
     }
@@ -60,7 +60,7 @@ class Colossus: Character {
     override init() {
         super.init()
         type    = .colossus
-        hp    = 0
+        hp    = 10
         hpMax = hp
         dmg     = 5
     }
@@ -98,8 +98,8 @@ class Character {
             print("\n💢  - \(self.dmg) HP")
         }
         else {
-            target.hp = 0
             print("\n💢  - \(target.hp) HP")
+            target.hp = 0
         }
         print("\(target.name!) HP = \(target.hp)/\(target.hpMax)")
     }

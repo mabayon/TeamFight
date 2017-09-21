@@ -9,7 +9,15 @@
 class Player {
     var id = 0
     var team: [Character] = []
-    var isAlive = true
+
+    var isAlive: Bool {
+        for hero in team {
+            if hero.isAlive {
+                return true
+            }
+        }
+        return false
+    }
     
     private func chooseYourCharacters(_ players: [Player]) {
         

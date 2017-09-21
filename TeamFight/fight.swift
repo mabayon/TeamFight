@@ -12,9 +12,11 @@ class Fight {
     init(_ players: [Player]) {
         self.players = players
     }
+
     private var description: String {
         return "\n-----Fight-----"
     }
+ 
     private func printTeam() {
         for player in players {
             print("\n----Player \(player.id)----")
@@ -23,6 +25,7 @@ class Fight {
             }
         }
     }
+  
     private func checkIfHeroIsAlive(_ player: Player, _ hero: inout Character?, i: Int) -> Bool {
         var validNumber: Bool
         
@@ -36,6 +39,7 @@ class Fight {
         }
         return validNumber
     }
+ 
     private func selectHero(_ player: Player) -> Character {
         var hero:           Character?
         var validNumber:    Bool
@@ -59,25 +63,33 @@ class Fight {
         } while !validNumber
         return hero!
     }
+
     private func checkIfTargetIsAlive(_ player: Player, _ hero: Character, _ target: inout Character?, i: Int) -> Bool {
         var validNumber: Bool
         
-        if player.team[i].isAlive {
-            if hero.type! == .mage {
+//        if player.team[i].isAlive {
+            if hero.type == .mage {
                 target = player.team[i]
             }
             else {
                 target = player.id == 1 ? players.last?.team[i] : players.first?.team[i]
             }
-            hero.attack(target!)
-            validNumber = true
-        }
-        else {
-            print("\(player.team[0].name!) is Dead 💀")
-            validNumber = false
-        }
+            if target!.isAlive {
+                hero.attack(target!)
+                validNumber = true
+            }
+            else {
+                print("\(target!.name!) is Dead 💀")
+                validNumber = false
+            }
+//        }
+//        else {
+//            print("\(player.team[i].name!) is Dead 💀")
+//            validNumber = false
+//        }
         return validNumber
     }
+  
     private func selectTarget(_ players: [Player], _ player: Player, _ hero: Character) {
         var target:         Character?
         var validNumber:    Bool
@@ -101,15 +113,32 @@ class Fight {
         } while !validNumber
     }
     
+    func checkIfPlayerIsAlive(_ player: Player) -> Bool {
+        for hero in player.team {
+            if hero.isAlive {
+                return true
+            }
+        }
+        return false
+    }
+    
     func start() {
         var hero:           Character
+        var play            = true
         
         print(description)
-        for player in players {
-            printTeam()
-            hero = selectHero(player)
-            selectTarget(players, player, hero)
+        while  play {
+            for player in players {
+                if player.isAlive {
+                    printTeam()
+                    hero = selectHero(player)
+                    selectTarget(players, player, hero)
+                }
+                else {
+                    print("🥇  Player \(player.id == 1 ? 2 : 1) Win !!!🥇")
+                    play = false
+                }
+            }
         }
     }
 }
-
