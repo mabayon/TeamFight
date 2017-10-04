@@ -6,6 +6,8 @@
 //  Copyright © 2017 Mahieu Bayon. All rights reserved.
 //
 
+import Foundation
+
 class Player {
     var id = 0
     var team: [Character] = []

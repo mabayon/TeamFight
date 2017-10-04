@@ -6,6 +6,8 @@
 //  Copyright © 2017 Mahieu Bayon. All rights reserved.
 //
 
+import Foundation
+
 class Launcher {
     var players: [Player] = []
     

@@ -6,6 +6,8 @@
 //  Copyright © 2017 Mahieu Bayon. All rights reserved.
 //
 
+import Foundation
+
 enum CharacterType {
     case warrior
     case mage
@@ -19,7 +21,7 @@ class Warrior: Character {
         type    = .warrior
         hp    = 100
         hpMax = hp
-        dmg     = 10
+        weapon = Sword(dmgMin: 10, dmgMax: 10)
     }
 }
 
@@ -29,14 +31,14 @@ class Mage: Character {
         type    = .mage
         hp    = 20
         hpMax = hp
-        dmg     = 15
+        weapon = Staff(dmgMin: 5, dmgMax: 5)
     }
     
     override func attack(_ target: Character) {
         print("\n💗  \(self.name!) Heal \(target.name!) 💗")
-        if target.hp + self.dmg < target.hpMax {
-            target.hp += self.dmg
-            print("✨  + \(self.dmg) HP")
+        if target.hp + weapon!.dmg! < target.hpMax {
+            target.hp += weapon!.dmg!
+            print("✨  + \(weapon!.dmg!) HP")
         }
         else {
             print("✨  + \((target.hpMax) - (target.hp)) HP")
@@ -52,7 +54,7 @@ class Dwarf: Character {
         type    = .dwarf
         hp    = 85
         hpMax = hp
-        dmg     = 15
+        weapon = Sword(dmgMin: 13, dmgMax: 13)
     }
 }
 
@@ -62,7 +64,7 @@ class Colossus: Character {
         type    = .colossus
         hp    = 10
         hpMax = hp
-        dmg     = 5
+        weapon = Sword(dmgMin: 6, dmgMax: 6)
     }
 }
 
@@ -72,7 +74,7 @@ class Character {
     var id      = 0
     var hp      = 0
     var hpMax   = 0
-    var dmg     = 0
+    var weapon: Weapon?
     
     var isAlive: Bool {
         if hp <= 0 {
@@ -84,18 +86,24 @@ class Character {
     }
     
     var description: String {
-        var info = "\(id). \(name!) Faction: \(type!) HP: \(hp)/\(hpMax) DMG: \(dmg)"
-        if !isAlive {
-            info.append("  ☠️")
+            var info = "\(id). \(name!) Faction: \(type!) HP: \(hp)/\(hpMax) DMG: \(weapon!.dmg!)"
+        switch weapon!.type! {
+        case .staff:
+            info.append("  🖊")
+        case .sword:
+            info.append("  🗡")
         }
-        return info
+            if !isAlive {
+                info.append("  ☠️")
+            }
+            return info
     }
     
     func attack(_ target: Character) {
         print("\n⚔️  \(self.name!) Attack \(target.name!)  ⚔️")
-        if target.hp - self.dmg > 0 {
-            target.hp = target.hp - self.dmg
-            print("\n💢  - \(self.dmg) HP")
+        if target.hp - weapon!.dmg! > 0 {
+            target.hp = target.hp - weapon!.dmg!
+            print("\n💢  - \(weapon!.dmg!) HP")
         }
         else {
             print("\n💢  - \(target.hp) HP")

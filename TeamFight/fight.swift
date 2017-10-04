@@ -6,6 +6,8 @@
 //  Copyright © 2017 Mahieu Bayon. All rights reserved.
 //
 
+import Foundation
+
 class Fight {
     var players: [Player]
     
@@ -17,7 +19,7 @@ class Fight {
         return "\n-----Fight-----"
     }
  
-    private func printTeam() {
+    private func printTeams() {
         for player in players {
             print("\n----Player \(player.id)----")
             for hero in player.team {
@@ -67,7 +69,6 @@ class Fight {
     private func checkIfTargetIsAlive(_ player: Player, _ hero: Character, _ target: inout Character?, i: Int) -> Bool {
         var validNumber: Bool
         
-//        if player.team[i].isAlive {
             if hero.type == .mage {
                 target = player.team[i]
             }
@@ -82,11 +83,6 @@ class Fight {
                 print("\(target!.name!) is Dead 💀")
                 validNumber = false
             }
-//        }
-//        else {
-//            print("\(player.team[i].name!) is Dead 💀")
-//            validNumber = false
-//        }
         return validNumber
     }
   
@@ -113,31 +109,29 @@ class Fight {
         } while !validNumber
     }
     
-    func checkIfPlayerIsAlive(_ player: Player) -> Bool {
-        for hero in player.team {
-            if hero.isAlive {
-                return true
-            }
-        }
-        return false
-    }
-    
     func start() {
         var hero:           Character
-        var play            = true
         
         print(description)
-        while  play {
+        while  players.first!.isAlive && players.last!.isAlive {
             for player in players {
-                if player.isAlive {
-                    printTeam()
-                    hero = selectHero(player)
-                    selectTarget(players, player, hero)
+                printTeams()
+                hero = selectHero(player)
+                let randomNum = Int(arc4random_uniform(2))
+                if randomNum == 1 {
+                    let treasure = Treasure()
+                    print(treasure.description)
+                    treasure.open(hero)
                 }
-                else {
-                    print("🥇  Player \(player.id == 1 ? 2 : 1) Win !!!🥇")
-                    play = false
+                selectTarget(players, player, hero)
+                if !players.first!.isAlive || !players.last!.isAlive {
+                    break
                 }
+            }
+        }
+        for player in players {
+            if player.isAlive {
+                print("🥇  Player \(player.id) Win !!!🥇")
             }
         }
     }
