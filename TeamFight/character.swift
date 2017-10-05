@@ -29,7 +29,7 @@ class Mage: Character {
     override init() {
         super.init()
         type    = .mage
-        hp    = 20
+        hp    = 85
         hpMax = hp
         weapon = Staff(dmgMin: 5, dmgMax: 5)
     }
@@ -54,7 +54,7 @@ class Dwarf: Character {
         type    = .dwarf
         hp    = 85
         hpMax = hp
-        weapon = Sword(dmgMin: 13, dmgMax: 13)
+        weapon = Axe(dmgMin: 13, dmgMax: 13)
     }
 }
 
@@ -62,9 +62,9 @@ class Colossus: Character {
     override init() {
         super.init()
         type    = .colossus
-        hp    = 10
+        hp    = 200
         hpMax = hp
-        weapon = Sword(dmgMin: 6, dmgMax: 6)
+        weapon = Hammer(dmgMin: 6, dmgMax: 6)
     }
 }
 
@@ -86,17 +86,23 @@ class Character {
     }
     
     var description: String {
-            var info = "\(id). \(name!) Faction: \(type!) HP: \(hp)/\(hpMax) DMG: \(weapon!.dmg!)"
+        var info = "\(id). \(name!) Faction: \(type!) HP: \(hp)/\(hpMax) DMG: \(weapon!.dmg!)"
+       
         switch weapon!.type! {
         case .staff:
-            info.append("  🖊")
+            info.append("  ⚡️")
         case .sword:
             info.append("  🗡")
+        case .axe:
+            info.append("  ⛏")
+        case .hammer:
+            info.append("  🔨")
         }
-            if !isAlive {
-                info.append("  ☠️")
-            }
-            return info
+        
+        if !isAlive {
+            info.append("  ☠️")
+        }
+        return info
     }
     
     func attack(_ target: Character) {

@@ -13,6 +13,7 @@
 		5C3150F11F7418C40026856F /* fight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3150F01F7418C40026856F /* fight.swift */; };
 		5C3150F31F7418E80026856F /* launcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3150F21F7418E80026856F /* launcher.swift */; };
 		5CF0977C1F7E41F800371A9A /* treasure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF0977B1F7E41F800371A9A /* treasure.swift */; };
+		5CF0C94C1F8679A800D687CB /* weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF0C94B1F8679A800D687CB /* weapon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,6 +36,7 @@
 		5C3150F01F7418C40026856F /* fight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fight.swift; sourceTree = "<group>"; };
 		5C3150F21F7418E80026856F /* launcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = launcher.swift; sourceTree = "<group>"; };
 		5CF0977B1F7E41F800371A9A /* treasure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = treasure.swift; sourceTree = "<group>"; };
+		5CF0C94B1F8679A800D687CB /* weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weapon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				5C1E03EE1F72AFE100FE9F60 /* main.swift */,
 				5C3150F01F7418C40026856F /* fight.swift */,
 				5CF0977B1F7E41F800371A9A /* treasure.swift */,
+				5CF0C94B1F8679A800D687CB /* weapon.swift */,
 				5C3150F21F7418E80026856F /* launcher.swift */,
 			);
 			path = TeamFight;
@@ -139,6 +142,7 @@
 				5C3150EF1F74188C0026856F /* character.swift in Sources */,
 				5C3150F31F7418E80026856F /* launcher.swift in Sources */,
 				5C3150ED1F7418560026856F /* player.swift in Sources */,
+				5CF0C94C1F8679A800D687CB /* weapon.swift in Sources */,
 				5CF0977C1F7E41F800371A9A /* treasure.swift in Sources */,
 				5C1E03EF1F72AFE100FE9F60 /* main.swift in Sources */,
 			);

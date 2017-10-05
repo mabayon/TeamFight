@@ -121,7 +121,7 @@ class Fight {
                 if randomNum == 1 {
                     let treasure = Treasure()
                     print(treasure.description)
-                    treasure.open(hero)
+                    treasure.random_object(hero)
                 }
                 selectTarget(players, player, hero)
                 if !players.first!.isAlive || !players.last!.isAlive {
