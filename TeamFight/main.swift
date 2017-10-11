@@ -8,5 +8,6 @@
 
 import Foundation
 
+// launches the game
 var game = Launcher()
 game.play()

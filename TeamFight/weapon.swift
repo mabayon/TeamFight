@@ -8,6 +8,7 @@
 
 import Foundation
 
+// Enumeration of the different weapon types
 enum WeaponType {
     case sword
     case staff
@@ -15,6 +16,7 @@ enum WeaponType {
     case hammer
 }
 
+// Contains all informations of the Hammer
 class Hammer: Weapon {
     init(dmgMin: Int, dmgMax: Int) {
         super.init()
@@ -23,6 +25,7 @@ class Hammer: Weapon {
     }
 }
 
+// Contains all informations of the Axe
 class Axe: Weapon {
     init(dmgMin: Int, dmgMax: Int) {
         super.init()
@@ -31,6 +34,7 @@ class Axe: Weapon {
     }
 }
 
+// Contains all informations of the Staff
 class Staff: Weapon {
     init(dmgMin: Int, dmgMax: Int) {
         super.init()
@@ -39,6 +43,7 @@ class Staff: Weapon {
     }
 }
 
+// Contains all informations of the Sword
 class Sword: Weapon {
     init(dmgMin: Int, dmgMax: Int) {
         super.init()
@@ -47,6 +52,7 @@ class Sword: Weapon {
     }
 }
 
+// Contains all informations of the Weapon
 class Weapon {
     var dmg: Int?
     var type: WeaponType?

@@ -8,10 +8,15 @@
 
 import Foundation
 
+// Class Player contains all informations of the player (Id, If he is alive, characters selected...)
 class Player {
+    
+    // Unique id to identify the player
     var id = 0
+    // List of charcters chosen by the player
     var team: [Character] = []
 
+    // Boolean to check if player is still alive
     var isAlive: Bool {
         for hero in team {
             if hero.isAlive {
@@ -21,8 +26,10 @@ class Player {
         return false
     }
     
+    // Ask player to select a character using keypad number
     private func chooseYourCharacters(_ players: [Player]) {
-        
+
+        // Boolean to check if the number enter by the player is valid
         var validNumber: Bool
         
         for i in 1...3 {
@@ -57,7 +64,11 @@ class Player {
             } while !validNumber
         }
     }
+
+    // Ask player to choose a name for the character chosen
     private func chooseYourName(_ players: [Player], hero: Character) {
+        
+        // Boolean to check if the number enter by the player is valid
         var validName: Bool
         
         repeat {
@@ -94,6 +105,8 @@ class Player {
             }
         } while !validName
     }
+    
+    // func to call to create team
     func createTeam(_ players: [Player]) {
         chooseYourCharacters(players)
     }

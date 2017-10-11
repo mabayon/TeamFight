@@ -8,6 +8,7 @@
 
 import Foundation
 
+// Enumeration of the different character types
 enum CharacterType {
     case warrior
     case mage
@@ -15,6 +16,7 @@ enum CharacterType {
     case dwarf
 }
 
+// Class Warrior contains all informations of the Warrior
 class Warrior: Character {
     override init() {
         super.init()
@@ -25,6 +27,7 @@ class Warrior: Character {
     }
 }
 
+// Class Mage contains all informations of the Mage
 class Mage: Character {
     override init() {
         super.init()
@@ -34,6 +37,7 @@ class Mage: Character {
         weapon = Staff(dmgMin: 5, dmgMax: 5)
     }
     
+    // Override func attack to heal instead of attack the target
     override func attack(_ target: Character) {
         print("\n💗  \(self.name!) Heal \(target.name!) 💗")
         if target.hp + weapon!.dmg! < target.hpMax {
@@ -48,6 +52,7 @@ class Mage: Character {
     }
 }
 
+// Class Dwarf contains all informations of the Dwarf
 class Dwarf: Character {
     override init() {
         super.init()
@@ -58,6 +63,7 @@ class Dwarf: Character {
     }
 }
 
+// Class Colossus contains all informations of the Colossus
 class Colossus: Character {
     override init() {
         super.init()
@@ -68,14 +74,23 @@ class Colossus: Character {
     }
 }
 
+// Class Character contains all informations of the character (Name, type, id...)
 class Character {
-    var name:   String?
-    var type:   CharacterType?
-    var id      = 0
-    var hp      = 0
-    var hpMax   = 0
-    var weapon: Weapon?
     
+    // Name of the character
+    var name:   String?
+    // type of the charcter
+    var type:   CharacterType?
+    // Unique id to identify the character
+    var id      = 0
+    // Current hp of the character
+    var hp      = 0
+    // Hp Maximum of the character
+    var hpMax   = 0
+    // Weapon carry by the character
+    var weapon: Weapon?
+
+    // Boolean to check if character is still alive
     var isAlive: Bool {
         if hp <= 0 {
             return false
@@ -85,6 +100,7 @@ class Character {
         }
     }
     
+    // Description of the character that contains the id, the name, the type, his life and the damage of the weapon
     var description: String {
         var info = "\(id). \(name!) Faction: \(type!) HP: \(hp)/\(hpMax) DMG: \(weapon!.dmg!)"
        
@@ -105,6 +121,7 @@ class Character {
         return info
     }
     
+    // Inflict damage to a target
     func attack(_ target: Character) {
         print("\n⚔️  \(self.name!) Attack \(target.name!)  ⚔️")
         if target.hp - weapon!.dmg! > 0 {

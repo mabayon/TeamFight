@@ -8,8 +8,13 @@
 
 import Foundation
 
+// Health Potion that cure a random amount of life
 class HealthPotion {
+    
+     // Heal a random amount of life
     func heal(_ hero: Character) {
+        
+        // Random amount of life between 5 and 10
         let heal = Int(arc4random_uniform(UInt32(6))) + 5
         print("You find a potion  💉")
         if hero.hp + heal < hero.hpMax {
@@ -24,26 +29,36 @@ class HealthPotion {
     }
 }
 
+// Bomb that removes a random amount of life
 class Bomb {
+    
+    // Remove a random amount of life
     func explosion(_ hero: Character) {
-        let dmg = Int(arc4random_uniform(UInt32(5))) + 1
+        
+        // Random damage between 1 and 5
+        let dmg = Int(arc4random_uniform(UInt32(5))) + 100
         print("💣   BOOM  💣")
         if hero.hp - dmg > 0 {
             hero.hp = hero.hp - dmg
             print("\n💢  - \(dmg) HP")
+            print("\(hero.name!) HP = \(hero.hp)/\(hero.hpMax)")
         }
         else {
             print("\n💢  - \(hero.hp) HP")
             hero.hp = 0
+            print("\(hero.name!) is Dead 💀")
         }
-        print("\(hero.name!) HP = \(hero.hp)/\(hero.hpMax)")
     }
 }
 
+// Class Treasure manage what the hero will find in the treasure
 class Treasure {
-    var description = "\nYeah you find a treasure 💼"
     
-    private func weaponFind(_ hero: Character) {
+    // Description of the treasure
+    var description = "\nYou find a treasure 💼"
+    
+    // Equips the character with the weapon found
+    private func weaponFound(_ hero: Character) {
         switch hero.type! {
         case .mage:
             hero.weapon = Staff(dmgMin: 6, dmgMax: 10)
@@ -60,12 +75,12 @@ class Treasure {
         }
     }
     
-    
+    // Select a random object (Weapon, potion or bomb)
     func random_object(_ hero: Character) {
         let randomNum = Int(arc4random_uniform(4))
         switch randomNum {
         case 0:
-            weaponFind(hero)
+            weaponFound(hero)
         case 1:
             let potion = HealthPotion()
             potion.heal(hero)
