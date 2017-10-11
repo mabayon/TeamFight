@@ -36,7 +36,7 @@ class Bomb {
     func explosion(_ hero: Character) {
         
         // Random damage between 1 and 5
-        let dmg = Int(arc4random_uniform(UInt32(5))) + 100
+        let dmg = Int(arc4random_uniform(UInt32(5))) + 1
         print("💣   BOOM  💣")
         if hero.hp - dmg > 0 {
             hero.hp = hero.hp - dmg
