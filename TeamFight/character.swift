@@ -102,7 +102,13 @@ class Character {
     
     // Description of the character that contains the id, the name, the type, his life and the damage of the weapon
     var description: String {
-        var info = "\(id). \(name!) Faction: \(type!) HP: \(hp)/\(hpMax) DMG: \(weapon!.dmg!)"
+        var info = ""
+        if type == .mage {
+            info = "\(id). \(name!) Faction: \(type!) HP: \(hp)/\(hpMax) Heal: \(weapon!.dmg!)"
+        }
+        else {
+            info = "\(id). \(name!) Faction: \(type!) HP: \(hp)/\(hpMax) DMG: \(weapon!.dmg!)"
+        }
        
         switch weapon!.type! {
         case .staff:
